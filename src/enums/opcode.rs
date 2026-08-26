@@ -31,10 +31,10 @@ impl BrainOpcodes {
 			"[" => BrainOpcodes::LoopStart,
 			"]" => BrainOpcodes::LoopEnd,
 			"/" => BrainOpcodes::Ignore,
-			"@" => BrainOpcodes::Number,
+			"@" => BrainOpcodes::Number(vec![]),
 			"#" => BrainOpcodes::TreatAsNumber,
 			"$" => BrainOpcodes::Hex,
-			"%" => BrainOpcodes::Bytes,
+			"%" => BrainOpcodes::Bytes(u8::MAX),
 			_ => BrainOpcodes::INVALID
 		}
 	}
@@ -48,3 +48,7 @@ impl RenderOpcodes {
 		}
 	}
 }
+
+
+
+// I would like to say this: I made a short story. Also MAN SHUT YOUR MOUTH UP IM TRYING TO CODE (2/35: Let me Code)

@@ -1,11 +1,13 @@
+use std::process::exit;
 
 
+#[derive(Debug, PartialEq, Eq)]
 pub enum RunArgs {
 	INVALID,
 	Interpret,
 	Compile
 }
-
+#[derive(Debug, PartialEq, Eq)]
 pub enum Options {
 	INVALID,
 	Help,
@@ -42,4 +44,9 @@ pub fn help() {
 	println!("Options:");
 	println!("  -h, --help     Show this help message");
 	println!("  -v, --version  Show the version");
+}
+pub fn invalid_args() {
+	eprintln!("Invalid arguments passed.");
+	help();
+	exit(1);
 }
