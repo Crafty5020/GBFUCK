@@ -9,7 +9,7 @@ static VERSION: &str = "0.0.1PRE-DEV";
 
 fn main() {
     println!("Hello..?");
-    println!("Are you still there? (3/35: Are you there?)");
+    println!("Are you still there? (3/35: Are you still there?)");
 
     // Collect Args
     let cur_args: Vec<String> = env::args().collect();
