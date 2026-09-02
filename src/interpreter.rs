@@ -1,6 +1,7 @@
-use std::fs::File;
 
-use crate::enums::args;
+mod enums;
+use crate::enums::opcode::{BrainOpcodes, RenderOpcodes};
+
 // INTERPRETER
 pub struct InterpreterGV { // Global Variables for the interpreter
 	// Args
@@ -14,7 +15,7 @@ pub struct InterpreterGV { // Global Variables for the interpreter
 	// The current position of the pointer in the vmemory tape
 	pub v_pointer: usize,
 	// Current file being interpreted
-	cur_file: File,
+	cur_file: Vec<BrainOpcodes>,
 
 	// Hi welcome if you DISCORVERED the soure code CONGRATS NOT bc this is the first fucking files there are more easter eggs though (1/35: Hi)
 }
@@ -22,9 +23,9 @@ pub struct InterpreterGV { // Global Variables for the interpreter
 impl InterpreterGV {
 
 	// new fuction nothing special
-	pub fn new(file: File,args: Vec<String>) -> InterpreterGV {
+	pub fn new(file: Vec<BrainOpcodes>,args: Vec<String>) -> InterpreterGV {
 		InterpreterGV {
-
+			args: args,
 			tape: vec![0; 8_000_000],
 			pointer: 0,
 			v_tape: vec![0; 4_000_000],

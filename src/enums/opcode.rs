@@ -5,7 +5,7 @@ pub enum BrainOpcodes {  // Opcodes used in the Brainfuck interpreter/compiler
 	IncrementValue, // +
 	DecrementValue, // -
 	OutputChar, // .
-	InputChar, // ,,
+	InputChar, // ,
 	LoopStart, // [
 	LoopEnd, // ]
 	Ignore, // /
@@ -13,6 +13,7 @@ pub enum BrainOpcodes {  // Opcodes used in the Brainfuck interpreter/compiler
 	TreatAsNumber, // #
 	Hex, // $
 	Bytes(u8) // %
+
 }
 pub enum RenderOpcodes { // Opcodes used in the Brainfuck interpreter/compiler fr=or the renderer
 	INVALID

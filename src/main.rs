@@ -4,6 +4,8 @@ use enums::args;
 mod interpreter;
 mod options;
 use options::{versions};
+mod lexer;
+//use lexer::{FILE,lexerise};
 
 static VERSION: &str = "0.0.1PRE-DEV";
 
@@ -21,7 +23,8 @@ fn main() {
             match args::RunArgs::from_str(&cur_args[1]) {
                 args::RunArgs::Interpret => {
                     println!("Interpreter selected.");
-                    let mut inter = interpreter::InterpreterGV::new(, cur_args[3..].to_vec());
+                    //let mut lexer = lexer::Lexer::new(cur_args[2].clone());
+                    //let mut inter = interpreter::InterpreterGV::new(file, cur_args[3..].to_vec());
                 },
                 args::RunArgs::Compile => {
                     println!("Compiler selected.");
@@ -45,6 +48,7 @@ fn main() {
         println!("No arguments passed.");
         args::help();
     }
+    
     println!("Hello, wait I mean bye");
     exit(0);
 }
