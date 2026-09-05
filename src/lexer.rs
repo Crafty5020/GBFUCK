@@ -1,4 +1,4 @@
-use std::{fs::File, path::Path};
+use std::{fs::File, io::Read, path::Path};
 use crate::enums::opcode::BrainOpcodes;
 
 pub fn lexerise(file_path: &Path) {
@@ -8,7 +8,7 @@ pub fn lexerise(file_path: &Path) {
 		Ok(cur_file) => {
 			let mut opcodes: Vec<BrainOpcodes> = Vec::new();
 			
-			
+			//for char in cur_file.bytes();
 		}
 		Err(error) => {
 			println!("Error opening file: {}", error);

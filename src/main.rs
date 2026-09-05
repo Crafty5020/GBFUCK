@@ -4,6 +4,8 @@ use enums::args;
 mod interpreter;
 mod options;
 use options::{versions};
+
+use crate::enums::opcode;
 mod lexer;
 //use lexer::{FILE,lexerise};
 
@@ -12,10 +14,15 @@ static VERSION: &str = "0.0.1PRE-DEV";
 fn main() {
     println!("Hello..?");
     println!("Are you still there? (3/35: Are you still there?)");
-
     // Collect Args
     let cur_args: Vec<String> = env::args().collect();
-    
+    opcode::BrainOpcodes::set_opcode_map();
+    let predict_result_1 = opcode::BrainOpcodes::predict_opcode(".");
+    let predict_result_2 = opcode::BrainOpcodes::predict_opcode(".d");
+    let predict_result_3 = opcode::BrainOpcodes::predict_opcode(".db");
+    println!("Predict result 1: {:?}", predict_result_1);
+    println!("Predict result 2: {:?}", predict_result_2);
+    println!("Predict result 3: {:?}", predict_result_3);
     if cur_args[1..].len() > 1 {
 
         if args::RunArgs::from_str(&cur_args[1]) == args::RunArgs::Interpret || 
@@ -23,6 +30,7 @@ fn main() {
             match args::RunArgs::from_str(&cur_args[1]) {
                 args::RunArgs::Interpret => {
                     println!("Interpreter selected.");
+                    //opcode::BrainOpcodes::set_opcode_map();
                     //let mut lexer = lexer::Lexer::new(cur_args[2].clone());
                     //let mut inter = interpreter::InterpreterGV::new(file, cur_args[3..].to_vec());
                 },

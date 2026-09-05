@@ -15,7 +15,7 @@ pub struct InterpreterGV { // Global Variables for the interpreter
 	// The current position of the pointer in the vmemory tape
 	pub v_pointer: usize,
 	// Current file being interpreted
-	cur_file: Vec<BrainOpcodes>,
+	pub cur_ops: Vec<BrainOpcodes>,
 
 	// Hi welcome if you DISCORVERED the soure code CONGRATS NOT bc this is the first fucking files there are more easter eggs though (1/35: Hi)
 }
@@ -30,7 +30,7 @@ impl InterpreterGV {
 			pointer: 0,
 			v_tape: vec![0; 4_000_000],
 			v_pointer: 0,
-			cur_file: file,
+			cur_ops: file,
 		}
 	}
 
